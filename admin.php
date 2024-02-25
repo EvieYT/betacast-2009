@@ -5,9 +5,7 @@
 	  $name = $sql->real_escape_string($_SESSION['username']);
 	  $ok = $sql->query("SELECT * FROM users WHERE username='$name'");
 	  $logged = mysqli_fetch_assoc($ok); 
-	  if($logged['admin'] !== '1' && $logged['username'] !== "Evie" && $logged['username'] !== "hwd") { $_SESSION['error'] = 'You are not admin.'; }
-	  if($logged['super_admin'] == '0' && $logged['username'] !== "Evie" && $logged['username'] !== "hwd") { $_SESSION['error'] = 'The admin panel has been retired.'; }
-	  if(($logged['super_admin'] == '0' || $logged['admin'] !== '1')  && $logged['username'] !== "Evie" && $logged['username'] !== "hwd") { echo "<script>window.location.href='/';</script>";
+          // suffer more hackers lol
 	  die($_SESSION['error']); }
 // Feature a Video
 if(!empty($_POST['featureid'])) { 
